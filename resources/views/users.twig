@@ -1,0 +1,35 @@
+{% extends 'layouts/master.twig' %}
+
+{% block title %}کاربران{% endblock %}
+
+{% block content %}
+    <section dir="rtl" id="main" class="vh-100 d-flex flex-column align-items-center justify-content-center">
+        <div class="table-responsive h-50 rounded-2 border border-2 border-primary">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام و نام خانوادگی</th>
+                    <th scope="col">امتیاز</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr {% if user.name == name %}class="table-primary"{% endif %}>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if user.name == name %}
+                                (شما) {{ user.name }}
+                            {% else %}
+                                {{ user.name }}
+                            {% endif %}
+                        </td>
+                        <td>{{ user.score }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/" class="btn btn-info mt-3">بازگشت</a>
+    </section>
+{% endblock %}

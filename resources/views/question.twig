@@ -1,0 +1,23 @@
+{% extends 'layouts/master.twig' %}
+
+{% set num1 = random(1) %}
+{% set num2 = random(1) %}
+
+{% block title %}{{ question.title }}{% endblock %}
+
+{% block content %}
+    <section id="main" class="bg-body-tertiary vh-100 d-flex align-items-center justify-content-center">
+        <form action="/switch" method="POST" dir="rtl">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <img src="{{ question.img }}" width="300px" class="rounded rounded-5" alt="">
+                <h3>{{ question.question }}</h3>
+            </div>
+            <select required name="score" class="form-select" size="2">
+                <option value="{{ num1 }}" >{{ question.option1 }}</option>
+                <option value="{{ num2 }}" >{{ question.option2 }}</option>
+            </select>
+            <br>
+            <button class="btn btn-primary w-100 py-2 w-25" type="submit">سوال بعدی</button>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layouts/master.twig' %}
+
+{% block title %}پایان{% endblock %}
+
+{% block content %}
+    <section dir="rtl" id="main" class="bg-body-tertiary vh-100 d-flex align-items-center justify-content-center">
+        <div class="text-center w-50">
+            <h5>نام: <span>{{ name }}</span></h5>
+            <h5>امتیاز: <span>{{ score }}</span></h5>
+            <p>{{ message|raw }}</p>
+            <form action="/restart" method="post">
+                <button class="btn btn-danger" type="submit">شروع دوباره</button>
+            </form>
+            <br>
+            <a href="/" class="btn btn-info">صفحه اصلی</a>
+        </div>
+    </section>
+{% endblock %}
